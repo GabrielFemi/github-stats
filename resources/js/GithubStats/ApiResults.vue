@@ -29,8 +29,9 @@ name: "ApiResults",
     },
     mounted() {
         axios.get(this.url).then(response => {
-            console.log(response.data.followers)
             this.followers = response.data.followers
+        }).catch(error =>  {
+            this.followers = error.response.data.message
         })
     }
 }

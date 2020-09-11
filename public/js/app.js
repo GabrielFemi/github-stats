@@ -1970,8 +1970,9 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     axios.get(this.url).then(function (response) {
-      console.log(response.data.followers);
       _this.followers = response.data.followers;
+    })["catch"](function (error) {
+      _this.followers = error.response.data.message;
     });
   }
 });
