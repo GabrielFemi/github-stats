@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\GithubController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::middleware(['auth:sanctum'])->get('/search', function () {
+Route::middleware(['auth:sanctum'])->get('search', function () {
     return \Inertia\Inertia::render('Search');
 });
+
+Route::middleware(['auth:sanctum'])->post('search', [GithubController::class, 'search']);

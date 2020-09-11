@@ -1959,6 +1959,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1966,6 +1972,18 @@ __webpack_require__.r(__webpack_exports__);
   components: {
     Label: _Jetstream_Label__WEBPACK_IMPORTED_MODULE_0__["default"],
     JetApplicationLogo: _Jetstream_ApplicationLogo__WEBPACK_IMPORTED_MODULE_1__["default"]
+  },
+  data: function data() {
+    return {
+      form: {
+        github_username: null
+      }
+    };
+  },
+  methods: {
+    submit: function submit() {
+      this.$inertia.post('/search', this.form);
+    }
   }
 });
 
@@ -23394,62 +23412,97 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "p-6 sm:px-20 bg-white border-b border-gray-200" },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-8 text-2xl" }, [
+          _vm._v("\n            Supply Github username\n        ")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "mt-6 text-gray-500" }, [
+          _c(
+            "form",
+            {
+              attrs: { action: "/search", method: "post" },
+              on: {
+                submit: function($event) {
+                  $event.preventDefault()
+                  return _vm.submit($event)
+                }
+              }
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.github_username,
+                    expression: "form.github_username"
+                  }
+                ],
+                staticClass:
+                  "py-5 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal",
+                attrs: {
+                  type: "text",
+                  placeholder: "GabrielFemi",
+                  id: "github-username"
+                },
+                domProps: { value: _vm.form.github_username },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "github_username", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm.$page.errors.github_username
+                ? _c("div", { staticClass: "text-red-700" }, [
+                    _vm._v(_vm._s(_vm.$page.errors.github_username[0]))
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c("input", {
+                staticClass:
+                  " bg-blue-500 hover:bg-blue-700 text-white pt-2 mt-3 font-bold py-2 px-4 rounded",
+                attrs: { type: "submit", value: "Search" }
+              })
+            ]
+          )
+        ])
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
-      _c(
-        "div",
-        { staticClass: "p-6 sm:px-20 bg-white border-b border-gray-200" },
-        [
-          _c(
-            "div",
-            {
-              staticClass:
-                "bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3",
-              attrs: { role: "alert" }
-            },
-            [
-              _c("p", { staticClass: "font-bold" }, [
-                _vm._v("Brief Information")
-              ]),
-              _vm._v(" "),
-              _c("p", { staticClass: "text-sm" }, [
-                _vm._v(
-                  "Kindly note that your results are not stored permanently... They'll be deleted after some time."
-                )
-              ])
-            ]
-          ),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-8 text-2xl" }, [
-            _vm._v("\n            Supply Github username\n        ")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "mt-6 text-gray-500" }, [
-            _c("input", {
-              staticClass:
-                "py-5 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 block w-full appearance-none leading-normal",
-              attrs: {
-                type: "email",
-                placeholder: "GabrielFemi",
-                id: "github-username"
-              }
-            })
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            staticClass:
-              " bg-blue-500 hover:bg-blue-700 text-white pt-2 mt-3 font-bold py-2 px-4 rounded",
-            attrs: { type: "submit", value: "Search" }
-          })
-        ]
-      )
-    ])
+    return _c(
+      "div",
+      {
+        staticClass:
+          "bg-blue-100 border-t border-b border-blue-500 text-blue-700 px-4 py-3",
+        attrs: { role: "alert" }
+      },
+      [
+        _c("p", { staticClass: "font-bold" }, [_vm._v("Brief Information")]),
+        _vm._v(" "),
+        _c("p", { staticClass: "text-sm" }, [
+          _vm._v(
+            "Kindly note that your results are not stored permanently... They'll be deleted after some time."
+          )
+        ])
+      ]
+    )
   }
 ]
 render._withStripped = true
