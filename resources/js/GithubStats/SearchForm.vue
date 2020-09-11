@@ -20,8 +20,6 @@
 
             </div>
 
-
-
         </div>
 
     </div>
@@ -48,7 +46,3 @@ form: {
     }
 }
 </script>
-
-<style scoped>
-
-</style>
