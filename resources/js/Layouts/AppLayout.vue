@@ -18,6 +18,9 @@
                             <jet-nav-link href="/dashboard" :active="$page.currentRouteName == 'dashboard'">
                                 Dashboard
                             </jet-nav-link>
+                            <jet-nav-link href="/search" :active="$page.currentRouteName == 'search'">
+                                Search
+                            </jet-nav-link>
                         </div>
                     </div>
 
