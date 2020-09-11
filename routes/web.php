@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\GithubController;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +21,12 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia\Inertia::render('Dashboard');
+    return Inertia::render('Dashboard');
 })->name('dashboard');
 
 
 Route::middleware(['auth:sanctum'])->get('search', function () {
-    return \Inertia\Inertia::render('Search');
+    return Inertia::render('Search');
 });
 
 Route::middleware(['auth:sanctum'])->post('search', [GithubController::class, 'search']);

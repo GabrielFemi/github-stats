@@ -10,6 +10,8 @@ class GithubController extends Controller
 {
     public function search(SearchGithubUserNameRequest $request)
     {
-        return back();
+        return Inertia::render('Results', [
+            'github_username' => $request->github_username
+        ]);
     }
 }
